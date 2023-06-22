@@ -16,4 +16,5 @@ React with Typescript Study
 ---
 ---
 # Kanban Board App
-[Honeycam 2023-06-22 18-20-04.webm](https://github.com/siwooJang/Redux/assets/88125431/394c6f3d-ccea-413a-ba89-e5a56280791c)
+![Honeycam 2023-06-22 18-20-04](https://github.com/siwooJang/Redux/assets/88125431/1a249b70-3485-47c7-a8ec-9f8f609f36e1)
+

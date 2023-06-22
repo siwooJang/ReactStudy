@@ -1,11 +1,9 @@
-import * as Clock from './clock'
-import * as Counter from './counter'
-import * as R from './remoteUser'
-import * as Cards from './cards'
+import * as L from './loading'
+import * as E from './errorMessage'
+import * as F from './fetchUser'
 
 export type AppState = {
-  clock: Clock.State
-  counter: Counter.State
-  remoteUser: R.State
-  cards: Cards.State
+  loading: L.State
+  errorMessage: E.State
+  fetchUser: F.State
 }

@@ -1,46 +1,37 @@
-import {useState, useCallback, useEffect} from 'react'
+import {useCallback, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {useToggle} from '../hooks'
 import {Title, Avatar} from '../components'
 import {Button} from '../theme/daisyui'
 import * as D from '../data'
 import type {AppState} from '../store'
-import * as R from '../store/remoteUser'
+import * as F from '../store/fetchUser'
 
-export default function RemoteUserTest() {
+export default function FetchTest() {
   const dispatch = useDispatch()
-  const user = useSelector<AppState, R.State>(({remoteUser}) => remoteUser)
-  const [loading, toggleLoading] = useToggle()
-  const [error, setError] = useState<Error | null>(null)
+  const {
+    loading,
+    errorMessage,
+    fetchUser: user
+  } = useSelector<AppState, AppState>(state => state)
 
   const getRemoteUser = useCallback(() => {
-    toggleLoading()
-    D.fetchRandomUser()
-      .then(user => dispatch(R.setUser(user)))
-      .catch(setError)
-      .finally(toggleLoading)
-  }, [dispatch, toggleLoading])
+    dispatch<any>(F.getRemoteUser())
+  }, [dispatch])
   const changeName = useCallback(() => {
-    toggleLoading()
-    D.fetchRandomUser()
-      .then(user => dispatch(R.changeName(user.name)))
-      .catch(setError)
-      .finally(toggleLoading)
-  }, [dispatch, toggleLoading])
-  const changeEmail = useCallback(
-    () => dispatch(R.changeEmail(D.randomEmail())),
-    [dispatch]
-  )
-  const changePicture = useCallback(
-    () => dispatch(R.changePicture({large: D.randomAvatar()})),
-    [dispatch]
-  )
+    dispatch<any>(F.changeNameByFetching())
+  }, [dispatch])
+  const changeEmail = useCallback(() => {
+    dispatch(F.changeEmail(D.randomEmail()))
+  }, [dispatch])
+  const changePicture = useCallback(() => {
+    dispatch(F.changePicture({large: D.randomAvatar()}))
+  }, [dispatch])
 
   useEffect(getRemoteUser, [getRemoteUser])
 
   return (
     <section className="mt-4">
-      <Title>RemoteUserTest</Title>
+      <Title>FetchTest</Title>
       <div className="flex justify-center mt-4">
         <Button className="btn-sm btn-primary" onClick={getRemoteUser}>
           get remote user
@@ -60,9 +51,9 @@ export default function RemoteUserTest() {
           <button className="btn btn-circle loading"></button>
         </div>
       )}
-      {error && (
+      {errorMessage.length && (
         <div className="p-4 mt-4 bg-red-200">
-          <p className="text-3xl text-red-500 text-bold">{error.message}</p>
+          <p className="text-3xl text-red-500 text-bold">{errorMessage}</p>
         </div>
       )}
 

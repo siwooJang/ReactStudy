@@ -1,6 +1,12 @@
 # Redux
 React with Typescript Study
 
+
+
+# Trello Kanban Board App
+![Honeycam 2023-06-22 18-32-12](https://github.com/siwooJang/Redux/assets/88125431/d71f83ba-1a29-4597-81ad-8ec3be22739d)
+
+---
 ---
 ---
 # Redux Tests
@@ -9,12 +15,8 @@ React with Typescript Study
 
 ---
 ---
+---
 # Middleware Tests
 
 ![image](https://github.com/siwooJang/Redux/assets/88125431/1f411b68-9236-458a-81b3-4d5421c73bb8)
-
----
----
-# Trello Kanban Board App
-![Honeycam 2023-06-22 18-20-04](https://github.com/siwooJang/Redux/assets/88125431/1a249b70-3485-47c7-a8ec-9f8f609f36e1)
 

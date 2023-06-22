@@ -1,9 +1,11 @@
-import * as L from './loading'
-import * as E from './errorMessage'
-import * as F from './fetchUser'
+import * as L from './listEntities'
+import * as LO from './listidOrders'
+import * as LC from './listidCardidOrders'
+import * as C from './cardEntities'
 
 export type AppState = {
-  loading: L.State
-  errorMessage: E.State
-  fetchUser: F.State
+  listEntities: L.State
+  listidOrders: LO.State
+  listidCardidOrders: LC.State
+  cardEntities: C.State
 }
